@@ -1115,7 +1115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
           label: '対象商品を見る',
           url: 'https://shop.bene-bene.com/fs/rosecut/',
-          target: '_blank'
+          target: '_self'
         }
       ],
       closeOnOverlay: true
@@ -1202,8 +1202,12 @@ document.addEventListener('DOMContentLoaded', () => {
       link.className = 'popupModal__button';
       link.textContent = btnConfig.label;
       link.href = btnConfig.url;
-      link.target = btnConfig.target || '_self';
-      link.rel = link.target === '_blank' ? 'noopener noreferrer' : '';
+      link.target = btnConfig.target === '_blank' ? '_blank' : '_self';
+      if(link.target === '_blank'){
+        link.rel = 'noopener';
+      }else{
+        link.removeAttribute('rel');
+      }
       link.addEventListener('click', (event) => {
         event.stopPropagation();
         localStorage.setItem(DISMISS_UNTIL_END_KEY, '1');
@@ -1242,7 +1246,7 @@ document.addEventListener('DOMContentLoaded', () => {
     dialog.addEventListener('click', (event) => {
       if(!hasPopupLink) return;
       if(event.target.closest('[data-popup-close], .popupModal__button')) return;
-      window.open(popupConfig.linkUrl, popupConfig.linkTarget || '_self');
+      window.open(popupConfig.linkUrl, popupConfig.linkTarget === '_blank' ? '_blank' : '_self');
     });
   };
 
