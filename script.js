@@ -210,13 +210,14 @@
     };
 
     const buildSearchUrl = ({ keywordValue, minPrice, maxPrice }) => {
-      const params = new URLSearchParams();
-      if(keywordValue) params.set('p', keywordValue);
-      if(minPrice) params.set('pf', minPrice);
-      if(maxPrice) params.set('pt', maxPrice);
-      const query = params.toString();
-      const baseUrl = 'https://store.shopping.yahoo.co.jp/benebene/search.html';
-      return query ? `${baseUrl}?${query}` : baseUrl;
+      const baseUrl = 'https://search.rakuten.co.jp/search/mall/';
+      const searchParams = new URLSearchParams();
+      searchParams.set('sid', '209075');
+      if(minPrice) searchParams.set('min', minPrice);
+      if(maxPrice) searchParams.set('max', maxPrice);
+      const searchQuery = searchParams.toString();
+      const keywordPath = keywordValue ? `${encodeURIComponent(keywordValue)}/` : '';
+      return `${baseUrl}${keywordPath}?${searchQuery}`;
     };
 
     const goSearch = (keyword) => {
@@ -1108,7 +1109,7 @@ document.addEventListener('DOMContentLoaded', () => {
       buttons: [
         {
           label: '詳しく見る',
-          url: 'https://shopping.geocities.jp/benebene/',
+          url: 'https://www.rakuten.ne.jp/gold/bene/',
           target: '_self'
         },
         {
