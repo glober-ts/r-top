@@ -185,8 +185,8 @@ img{display:block;max-width:100%}
   -webkit-backdrop-filter:blur(10px);
 }
 .headerRow{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-block:14px}
-.headerBrand{display:flex;align-items:center;flex:0 0 auto;min-width:0}
-.logo{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.headerBrand{display:flex;align-items:center;min-width:0}
+.logo{display:flex;align-items:center;gap:10px}
 .pcShopLabel{
   display:inline-flex;
   align-items:center;
