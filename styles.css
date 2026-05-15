@@ -201,7 +201,7 @@ img{display:block;max-width:100%}
   line-height:1;
   letter-spacing:.08em;
   white-space:nowrap;
-  margin-left:12px;
+  margin-left:20px;
 }
 .drawerShopLabel{display:none}
 .logoMark{width:34px;height:34px;border-radius:var(--radius-card-xs);border:1px solid rgba(230,225,216,1);background:radial-gradient(circle at 30% 30%,#fff,#efe5cf);box-shadow:0 10px 22px rgba(0,0,0,.08)}
